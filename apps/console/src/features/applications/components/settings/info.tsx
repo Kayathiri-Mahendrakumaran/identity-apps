@@ -31,6 +31,8 @@ import { Divider, Grid } from "semantic-ui-react";
 import { AppState } from "../../../core";
 import CustomApplicationTemplate
     from "../../data/application-templates/templates/custom-application/custom-application.json";
+import SinglePageApplication
+    from "../../data/application-templates/templates/single-page-application/single-page-application.json";
 import {
     InboundProtocolListItemInterface,
     OIDCApplicationConfigurationInterface,
@@ -126,8 +128,11 @@ export const Info: FunctionComponent<InfoPropsInterface> = (
                                         { t("console:develop.features.applications.edit.sections.info." +
                                             "oidcSubHeading") }
                                         <DocumentationLink
-                                            link={ getLink("develop.applications.editApplication." +
-                                                "oidcApplication.info.learnMore") }
+                                            link={ templateId === SinglePageApplication.id
+                                                    ? getLink("develop.applications.editApplication." +
+                                                        "singlePageApplication.info.learnMore")
+                                                    : getLink("develop.applications.editApplication." +
+                                                        "oidcApplication.info.learnMore") }
                                         >
                                             { t("common:learnMore") }
                                         </DocumentationLink>
